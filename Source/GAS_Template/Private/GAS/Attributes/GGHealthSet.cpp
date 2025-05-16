@@ -5,7 +5,7 @@
 #include "GameplayEffectExtension.h"
 
 
-UGGHealthSet::UGGHealthSet() : Health(40.f), MaxHealth(40.f), Shield(0.f), MaxShield(0.f), ShieldRegen(0.f), InDamage(0.f)
+UGGHealthSet::UGGHealthSet() 
 {
 }
 

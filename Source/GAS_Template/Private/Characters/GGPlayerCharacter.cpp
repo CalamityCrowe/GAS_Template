@@ -90,11 +90,11 @@ void AGGPlayerCharacter::Move(const FInputActionValue& Value)
 	FRotator CRot = GetControlRotation();
 
 	FVector RightVec = UKismetMathLibrary::GetRightVector(FRotator(0, CRot.Yaw, CRot.Roll));
-	RightVec = UKismetMathLibrary::NegateVector(RightVec); // this is to make the player move in the direction of the camera, not the opposite direction	
-	AddMovementInput(RightVec, Input.Y);
+	//RightVec = UKismetMathLibrary::NegateVector(RightVec); // this is to make the player move in the direction of the camera, not the opposite direction	
+	AddMovementInput(RightVec, Input.X);
 	FVector ForwardVec = UKismetMathLibrary::GetForwardVector(FRotator(0, CRot.Yaw, 0));
 	//ForwardVec = UKismetMathLibrary::NegateVector(ForwardVec); // this is to make the player move in the direction of the camera, not the opposite direction
-	AddMovementInput(ForwardVec, Input.X);
+	AddMovementInput(ForwardVec, Input.Y);
 }
 
 void AGGPlayerCharacter::Look(const FInputActionValue& Value)
