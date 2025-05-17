@@ -86,17 +86,15 @@ void AGGPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 
 void AGGPlayerCharacter::Move(const FInputActionValue& Value)
 {
-	//FVector2D Input = Value.Get<FVector2D>();
-	//FRotator CRot = GetControlRotation();
+	FVector2D Input = Value.Get<FVector2D>();
+	FRotator CRot = GetControlRotation();
 
-	//FVector RightVec = UKismetMathLibrary::GetRightVector(FRotator(0, CRot.Yaw, CRot.Roll));
-	////RightVec = UKismetMathLibrary::NegateVector(RightVec); // this is to make the player move in the direction of the camera, not the opposite direction	
-	//AddMovementInput(RightVec, Input.X);
-	//FVector ForwardVec = UKismetMathLibrary::GetForwardVector(FRotator(0, CRot.Yaw, 0));
-	////ForwardVec = UKismetMathLibrary::NegateVector(ForwardVec); // this is to make the player move in the direction of the camera, not the opposite direction
-	//AddMovementInput(ForwardVec, Input.Y);
-	MovementAxis = Value.Get<FVector2D>();
-	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Confirm)); // this takes the Input action value and sends it to the ability system component
+	FVector RightVec = UKismetMathLibrary::GetRightVector(FRotator(0, CRot.Yaw, CRot.Roll));
+	//RightVec = UKismetMathLibrary::NegateVector(RightVec); // this is to make the player move in the direction of the camera, not the opposite direction	
+	AddMovementInput(RightVec, Input.X);
+	FVector ForwardVec = UKismetMathLibrary::GetForwardVector(FRotator(0, CRot.Yaw, 0));
+	//ForwardVec = UKismetMathLibrary::NegateVector(ForwardVec); // this is to make the player move in the direction of the camera, not the opposite direction
+	AddMovementInput(ForwardVec, Input.Y);
 }
 
 void AGGPlayerCharacter::Look(const FInputActionValue& Value)
@@ -109,5 +107,5 @@ void AGGPlayerCharacter::Look(const FInputActionValue& Value)
 
 void AGGPlayerCharacter::FireAbility(const FInputActionValue& Value)
 {
-	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Move)); // this takes the Input action value and sends it to the ability system component
+	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::FireAbility)); // this takes the Input action value and sends it to the ability system component
 }

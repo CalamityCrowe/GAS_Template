@@ -6,9 +6,11 @@
 
 UENUM(BlueprintType)
 enum class EAbilityInputID:uint8
-{
-	None, 
-	Confirm,
-	Cancel,
-	FireAbility
+{ 
+	None UMETA(DisplayName = "None"),
+	Confirm UMETA(DisplayName = "Confirm"),
+	Cancel UMETA(DisplayName = "Cancel"),
+	FireAbility UMETA(DisplayName  = "FireAbility"),
+	Move UMETA(DisplayName  = "Move"), 
+	Look UMETA(DisplayName  = "Look")
 };

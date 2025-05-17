@@ -62,7 +62,5 @@ protected:
 	TArray<TSubclassOf<UGGBaseAbility>> DefaultAbilities;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = true))
 	TArray<TSubclassOf<UGameplayEffect>> DefaultEffects;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = true))
-	FVector2D MovementAxis;
 
 };
