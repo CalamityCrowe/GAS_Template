@@ -4,6 +4,7 @@
 #include "Characters/GGBaseCharacter.h"
 #include "AbilitySystemComponent.h"
 #include "GAS/Attributes/GGHealthSet.h"
+#include "GAS/Attributes/GGManaSet.h"
 #include "GAS/Abilities/GGBaseAbility.h"
 
 // Sets default values
@@ -15,6 +16,7 @@ AGGBaseCharacter::AGGBaseCharacter()
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 
 	HealthSet = CreateDefaultSubobject<UGGHealthSet>(TEXT("HealthSet"));
+	ManaSet = CreateDefaultSubobject<UGGManaSet>(TEXT("ManaSet"));
 }
 
 // Called when the game starts or when spawned
@@ -24,7 +26,7 @@ void AGGBaseCharacter::BeginPlay()
 	HealthSet->OnDamageTaken.AddUObject(this, &AGGBaseCharacter::OnDamageTakenChanged); // think of this as a AddDynamic effectively
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(UGGHealthSet::GetHealthAttribute()).AddUObject(this, &AGGBaseCharacter::OnHealthAttributeChanged);
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(UGGHealthSet::GetShieldAttribute()).AddUObject(this, &AGGBaseCharacter::OnShieldAttributeChanged);
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(UGGManaSet::GetMPAttribute()).AddUObject(this, &AGGBaseCharacter::OnMPAttributeChanged);
 }
 
 void AGGBaseCharacter::InitializeAbilities()
@@ -86,9 +88,9 @@ void AGGBaseCharacter::OnHealthAttributeChanged(const FOnAttributeChangeData& Da
 	OnHealthChanged(Data.OldValue, Data.NewValue);
 }
 
-void AGGBaseCharacter::OnShieldAttributeChanged(const FOnAttributeChangeData& Data)
+void AGGBaseCharacter::OnMPAttributeChanged(const FOnAttributeChangeData& Data)
 {
-	OnShieldChanged(Data.OldValue, Data.NewValue);
+	OnMPChanged(Data.OldValue, Data.NewValue);
 }
 
 // Called every frame

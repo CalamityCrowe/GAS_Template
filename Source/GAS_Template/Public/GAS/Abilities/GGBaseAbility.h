@@ -19,4 +19,10 @@ class GAS_TEMPLATE_API UGGBaseAbility : public UGameplayAbility
 	EAbilityInputID AbilityInputID{ EAbilityInputID::None }; 
 public:
 	EAbilityInputID GetInputID() const { return AbilityInputID; }
+
+	UPROPERTY(EditDefaultsOnly)
+	float Cost; 
+	UPROPERTY(EditDefaultsOnly)
+	float CooldownDuration;
+	
 };

@@ -11,6 +11,7 @@
 // forward declarations
 class UAbilitySystemComponent;
 class UGGHealthSet;
+class UGGManaSet;
 class UGGBaseAbility;
 class UGameplayEffect;
 
@@ -43,9 +44,9 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "GAS")
 	void OnHealthChanged(float OldHealth, float NewHealth);
 
-	virtual void OnShieldAttributeChanged(const FOnAttributeChangeData& Data);
+	virtual void OnMPAttributeChanged(const FOnAttributeChangeData& Data);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GAS")
-	void OnShieldChanged(float OldShield, float NewShield);
+	void OnMPChanged(float OldShield, float NewShield);
 
 public:	
 	// Called every frame
@@ -59,6 +60,8 @@ protected:
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = true))
 	TObjectPtr<UGGHealthSet> HealthSet;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = true))
+	TObjectPtr<UGGManaSet> ManaSet;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = true))
 	TArray<TSubclassOf<UGGBaseAbility>> DefaultAbilities;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = true))

@@ -26,10 +26,6 @@ void UGGHealthSet::ClampAttributeOnChange(const FGameplayAttribute& Attribute, f
 	{
 		NewValue = FMath::Clamp(NewValue, 0.0f, GetMaxHealth());
 	}
-	else if(Attribute == GetShieldAttribute())
-	{
-		NewValue = FMath::Clamp(NewValue, 0.0f, GetMaxShield());
-	}
 }
 
 /// <summary>
@@ -56,12 +52,6 @@ void UGGHealthSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackDat
 				AActor* DamageCauser = EffectContext.GetEffectCauser();
 
 				OnDamageTaken.Broadcast(Instigator, DamageCauser, Data.EffectSpec.CapturedSourceTags.GetSpecTags(), InDamageDone);
-			}
-			if (GetShield() > 0.0f) 
-			{
-				const float NewShield = GetShield() - InDamageDone;
-				SetShield(NewShield);
-				InDamageDone = FMath::Clamp(InDamageDone, 0.0f, GetShield());
 			}
 			if (InDamageDone > 0.0f && GetHealth() > 0.0f) 
 			{

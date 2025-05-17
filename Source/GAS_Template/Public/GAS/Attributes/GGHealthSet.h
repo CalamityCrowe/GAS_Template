@@ -29,18 +29,6 @@ public:
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UGGHealthSet, MaxHealth); // this is how to use the Attribute Accessor to give the variable getters and setters
 	
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes", meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData Shield;
-	ATTRIBUTE_ACCESSORS(UGGHealthSet, Shield); // this is how to use the Attribute Accessor to give the variable getters and setters
-	
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes", meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData MaxShield;
-	ATTRIBUTE_ACCESSORS(UGGHealthSet, MaxShield); // this is how to use the Attribute Accessor to give the variable getters and setters
-
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes", meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData ShieldRegen;
-	ATTRIBUTE_ACCESSORS(UGGHealthSet, ShieldRegen); // this is how to use the Attribute Accessor to give the variable getters and setters
-
 	UPROPERTY(BLueprintReadOnly, Category = "Attributes", meta = (AllowPrivateAccess = true))
 	FGameplayAttributeData InDamage;
 	ATTRIBUTE_ACCESSORS(UGGHealthSet, InDamage); // this is how to use the Attribute Accessor to give the variable getters and setters
