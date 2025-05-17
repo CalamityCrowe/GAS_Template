@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GAS/Attributes/GGBaseSet.h"
+#include "AbilitySystemComponent.h"
 #include "GGStatsSet.generated.h"
 
 /**
