@@ -96,7 +96,7 @@ void AGGPlayerCharacter::Move(const FInputActionValue& Value)
 	////ForwardVec = UKismetMathLibrary::NegateVector(ForwardVec); // this is to make the player move in the direction of the camera, not the opposite direction
 	//AddMovementInput(ForwardVec, Input.Y);
 	MovementAxis = Value.Get<FVector2D>();
-	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Confirm)); // this takes the Input action value and sends it to the ability system component
+	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Move)); // this takes the Input action value and sends it to the ability system component
 }
 
 void AGGPlayerCharacter::Look(const FInputActionValue& Value)
@@ -109,5 +109,5 @@ void AGGPlayerCharacter::Look(const FInputActionValue& Value)
 
 void AGGPlayerCharacter::FireAbility(const FInputActionValue& Value)
 {
-	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Move)); // this takes the Input action value and sends it to the ability system component
+	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::FireAbility)); // this takes the Input action value and sends it to the ability system component
 }

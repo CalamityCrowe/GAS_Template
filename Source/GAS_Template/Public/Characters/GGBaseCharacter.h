@@ -23,11 +23,12 @@ public:
 	// Sets default values for this character's properties
 	AGGBaseCharacter();
 
+	UAbilitySystemComponent* GetAbilitySystemComponent() const override { return AbilitySystemComponent; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UAbilitySystemComponent* GetAbilitySystemComponent() const override { return AbilitySystemComponent; }
 
 	virtual void InitializeAbilities();
 	virtual void InitializeEffects();
