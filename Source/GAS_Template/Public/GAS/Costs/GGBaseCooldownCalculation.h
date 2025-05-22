@@ -13,5 +13,7 @@ UCLASS()
 class GAS_TEMPLATE_API UGGBaseCooldownCalculation : public UGameplayModMagnitudeCalculation
 {
 	GENERATED_BODY()
-	
+
+	float CalculateBaseMagnitude_Implementation(const FGameplayEffectSpec& Spec) const override;
+
 };
