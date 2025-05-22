@@ -109,5 +109,5 @@ void AGGPlayerCharacter::Look(const FInputActionValue& Value)
 
 void AGGPlayerCharacter::FireAbility(const FInputActionValue& Value)
 {
-	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::FireAbility)); // this takes the Input action value and sends it to the ability system component
+	SendAbilityLocalInput(Value, static_cast<int32>(EAbilityInputID::Ability1)); // this takes the Input action value and sends it to the ability system component
 }

@@ -17,7 +17,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Ability|Damage")
 	double DamageConstant = 16;
 	UFUNCTION(BlueprintPure)
-	float DamageCalculation(float Stat);
+	int32 PhysicalDamageCalculation(float Stat);
 	UFUNCTION(BlueprintPure)
 	int DamageReduction(float BaseDamage, float DefenceStat);
 
