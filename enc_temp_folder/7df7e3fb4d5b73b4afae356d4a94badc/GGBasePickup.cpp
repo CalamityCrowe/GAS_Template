@@ -25,6 +25,11 @@ AGGBasePickup::AGGBasePickup()
 void AGGBasePickup::BeginPlay()
 {
 	Super::BeginPlay();
+	if(PickupEffect)
+	{
+		//FGameplayEffectSpecHandle PickupEffectSpecHandle = MakeOutgoingSpec(PickupEffect, 1.0f, GetAbilitySystemComponent()->MakeEffectContext());
+	}
+
 }
 
 

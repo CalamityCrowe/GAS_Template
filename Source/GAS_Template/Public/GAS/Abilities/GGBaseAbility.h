@@ -25,4 +25,6 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	float CooldownDuration;
 	
+
+
 };

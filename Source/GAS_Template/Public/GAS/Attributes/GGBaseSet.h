@@ -27,4 +27,7 @@ protected:
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 
 	virtual void ClampAttributeOnChange(const FGameplayAttribute& Attribute, float& NewValue) const; 
+
+	void AdjustAttributeForMaxChange(const FGameplayAttributeData& AffectedAttribute, const FGameplayAttributeData& MaxAttribute, float& NewValue, const FGameplayAttribute& AffectedAttributeProperty) const;
+
 };
