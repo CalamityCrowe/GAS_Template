@@ -3,30 +3,32 @@
 
 #include "GAS/Abilities/GGDamageAbility.h"
 
-int32 UGGDamageAbility::PhysicalDamageCalculation(float Stat)
+UGGDamageAbility::UGGDamageAbility()
 {
-	if (Stat < 0)
-	{
-		return 0;
-	}
-	float Damage  = FMath::Pow(Stat,3)/32; 
-	Damage += 32;
-	Damage *= (DamageConstant / 16.f); 
-	return Damage;
+	InstancingPolicy = EGameplayAbilityInstancingPolicy::InstancedPerActor;
+
+	FGameplayTag Ability1Tag = FGameplayTag::RequestGameplayTag(FName("Ability.Skill.Ability1"));
+	AbilityTags.AddTag(Ability1Tag);
+	ActivationOwnedTags.AddTag(Ability1Tag);
+
+	ActivationBlockedTags.AddTag(FGameplayTag::RequestGameplayTag(FName("Ability.Skill")));
+
+	Range = 1000.f; // Default range for the projectile
+	Damage = 12.f;
 }
 
-int UGGDamageAbility::DamageReduction(float BaseDamage, float DefenceStat)
+void UGGDamageAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData)
 {
-	DefenceStat = (FMath::Pow(FMath::RoundToZero(DefenceStat - 280.4), 2) / 110);
-	DefenceStat += 16; 
-	int DefInt = FMath::RoundToInt(DefenceStat);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Defence: %d"), DefInt));
-	return DefInt;
 }
 
-int UGGDamageAbility::FinalDamageCalculation(float Stat, float DefenceStat)
+void UGGDamageAbility::OnCancelled(FGameplayTag EventTag, FGameplayEventData EventData)
 {
-
-	return 0;
 }
 
+void UGGDamageAbility::OnCompleted(FGameplayTag EventTag, FGameplayEventData EventData)
+{
+}
+
+void UGGDamageAbility::EventReceived(FGameplayTag EventTag, FGameplayEventData EventData)
+{
+}

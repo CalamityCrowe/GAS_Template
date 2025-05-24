@@ -40,7 +40,7 @@ void AGGBaseCharacter::InitializeAbilities()
 	}
 	for(TSubclassOf<UGGBaseAbility>& Ability: DefaultAbilities)
 	{
-			FGameplayAbilitySpecHandle SpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(Ability, 1, static_cast<int32>(Ability.GetDefaultObject()->GetInputID()), this));
+			FGameplayAbilitySpecHandle SpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(Ability, 1, static_cast<int32>(Ability.GetDefaultObject()->AbilityInputID), this));
 	}
 }
 
